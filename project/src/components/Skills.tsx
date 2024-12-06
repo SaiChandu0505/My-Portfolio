@@ -10,9 +10,12 @@ import {
   Github,
   Terminal,
   Globe,
-  Cloud
+  Cloud,
+  GlobeIcon,
+  NetworkIcon,
+  RouteIcon
 } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 interface Skill {
   name: string;
@@ -24,14 +27,14 @@ interface Skill {
 
 const skills: Skill[] = [
   { 
-    name: 'JAVA',
+    name: 'Core Java',
     icon: FileCode,
     description: 'Expert in Java development with strong OOP principles and design patterns',
     level: 90,
     category: 'backend'
   },
   { 
-    name: 'Data Structures',
+    name: 'Microservices',
     icon: CircuitBoard,
     description: 'Proficient in implementing efficient algorithms and optimizing solutions',
     level: 85,
@@ -59,10 +62,17 @@ const skills: Skill[] = [
     category: 'frontend'
   },
   { 
+    name: 'React',
+    icon: Globe,
+    description: 'hooks, redux tool kit , routing',
+    level: 50,
+    category: 'frontend'
+  },
+  { 
     name: 'JavaScript',
     icon: Braces,
     description: 'Modern ES6+ features and async programming',
-    level: 75,
+    level: 50,
     category: 'frontend'
   },
   { 
@@ -80,11 +90,39 @@ const skills: Skill[] = [
     category: 'tools'
   },
   { 
-    name: 'Linux',
-    icon: Terminal,
-    description: 'Shell scripting and system administration',
-    level: 75,
-    category: 'tools'
+    name: 'Jdbc',
+    icon: Database,
+    description: 'Java API to connect and execute the query with the database',
+    level: 90,
+    category: 'backend'
+  },
+  { 
+    name: 'Jpa',
+    icon: Database,
+    description: 'Java API to connect and execute the query with the database',
+    level: 90,
+    category: 'backend'
+  },
+  { 
+    name: 'Kafka',
+    icon: NetworkIcon,
+    description: 'Messaging broker System',
+    level: 90,
+    category: 'backend'
+  },
+  { 
+    name: 'ESB',
+    icon: RouteIcon,
+    description: 'connectivity between 2 components',
+    level: 90,
+    category: 'backend'
+  },
+  { 
+    name: 'Soap',
+    icon: RouteIcon,
+    description: 'connectivity between 2 components',
+    level: 90,
+    category: 'backend'
   },
   {
     name: 'REST APIs',
@@ -136,8 +174,7 @@ export function Skills() {
             <div
               key={skill.name}
               className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300"
-              onMouseEnter={() => setHoveredSkill(skill.name)}
-              onMouseLeave={() => setHoveredSkill(null)}
+              
             >
               <div className="flex items-center gap-4 mb-4">
                 <skill.icon className="w-8 h-8 text-blue-600" />
@@ -149,7 +186,7 @@ export function Skills() {
                   <div
                     className="h-full bg-blue-600 rounded-full transition-all duration-1000"
                     style={{
-                      width: hoveredSkill === skill.name ? `${skill.level}%` : '0%'
+                      width: `${skill.level}%` 
                     }}
                   />
                 </div>
